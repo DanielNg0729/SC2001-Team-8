@@ -3,8 +3,12 @@ SC2001 Lab Project 1: Integration of Merge Sort & Insertion Sort
 
 '''
 
-def insertion_sort(arr, low, high):
+def insertion_sort(arr, low = None, high = None):
     # Sort arr[low:high]
+    if low == None:
+        low = 0
+    if high == None:
+        high = len(arr) - 1
     count = 0
     for i in range(low + 1, high + 1):
         key = arr[i]
@@ -46,7 +50,7 @@ def merge(arr, low, mid,high):
         k += 1
     return count, arr
 
-def merge_sort(arr, low, high):
+def merge_sort(arr, low = None, high = None):
     if low is None:
         low = 0
     if high is None:
@@ -60,6 +64,6 @@ def merge_sort(arr, low, high):
     return c
 
 
-def hybrid_sort(arr):
+def hybrid_sort(arr, s, low, high):
     pass
 

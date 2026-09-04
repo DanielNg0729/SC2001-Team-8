@@ -2,6 +2,7 @@
 SC2001 Lab Project 1: Integration of Merge Sort & Insertion Sort
 
 '''
+import random
 
 def insertion_sort(arr, low = None, high = None):
     # Sort arr[low:high]
@@ -81,3 +82,8 @@ def hybrid_sort(arr, s, low, high):
     return c
 
 
+def generate_data(n, x ,seed = 1):
+    rng = random.Random(seed) # Added seed to control the variant, remove seed for random
+    return [rng.randint(1, x) for _ in range(n)]
+
+print(generate_data(10,10))

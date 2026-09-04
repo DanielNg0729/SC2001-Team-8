@@ -65,5 +65,19 @@ def merge_sort(arr, low = None, high = None):
 
 
 def hybrid_sort(arr, s, low, high):
-    pass
+    # s here is the threshold
+    if low is None:
+        low = 0
+    if high is None:
+        high = len(arr) - 1
+    # length is the length of the part we do the sorting
+    length = high - low + 1
+    if length <= s:
+        return insertion_sort(arr, low, high)
+    mid = (low + high) // 2
+    c = hybrid_sort(arr,s,low,high)
+    c += hybrid_sort(arr,s,mid + 1,high)
+    c += merge(arr, low, mid, high)
+    return c
+
 
